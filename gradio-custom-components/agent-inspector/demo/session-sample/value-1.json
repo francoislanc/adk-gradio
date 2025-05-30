@@ -1,0 +1,158 @@
+{
+  "id": "bbc3575c-5b3d-494d-9b90-03fb01b15fde",
+  "appName": "agent",
+  "userId": "user",
+  "state": {
+    "last_city_checked_stateful": "london"
+  },
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "hi"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-b7d4f79d-ccd1-4b7d-98ae-c8a63ce7a87f",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "JdtbADN3",
+      "timestamp": 1748895673.201263
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Hi there! How can I help you today?\n"
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 11,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 11
+          }
+        ],
+        "promptTokenCount": 245,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 245
+          }
+        ],
+        "totalTokenCount": 256
+      },
+      "invocationId": "e-b7d4f79d-ccd1-4b7d-98ae-c8a63ce7a87f",
+      "author": "weather_agent_v1",
+      "actions": {
+        "stateDelta": {
+          "last_weather_report": "Hi there! How can I help you today?\n"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "sN3akUOs",
+      "timestamp": 1748895673.201263
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "what is the weather in london ?"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "hwMHRYGt",
+      "timestamp": 1748895691.725014
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-e32f3a18-a233-4ae8-b56d-4190cf8b1355",
+              "args": {
+                "city": "london"
+              },
+              "name": "get_weather"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 5,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "promptTokenCount": 263,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 263
+          }
+        ],
+        "totalTokenCount": 268
+      },
+      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "author": "weather_agent_v1",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "longRunningToolIds": [],
+      "id": "xnWDPJq3",
+      "timestamp": 1748895691.725852
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-e32f3a18-a233-4ae8-b56d-4190cf8b1355",
+              "name": "get_weather",
+              "response": {
+                "status": "success",
+                "report": "The weather in London is cloudy with a temperature of 15°C."
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "author": "weather_agent_v1",
+      "actions": {
+        "stateDelta": {
+          "last_city_checked_stateful": "london"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "qhLH5c0p",
+      "timestamp": 1748895692.234188
+    }
+  ],
+  "lastUpdateTime": 1748895692.234188
+}

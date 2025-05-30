@@ -1,0 +1,3 @@
+{
+  "dotSrc": "digraph {\n\tgraph [bgcolor=\"#333537\" rankdir=LR]\n\tweather_agent_v1 [label=\"🤖 weather_agent_v1\" color=\"#0F5223\" fillcolor=\"#0F5223\" fontcolor=\"#cccccc\" shape=ellipse style=\"filled,rounded\"]\n\tget_weather [label=\"🔧 get_weather\" color=\"#cccccc\" fontcolor=\"#cccccc\" shape=box style=rounded]\n\tweather_agent_v1 -> get_weather [arrowhead=none color=\"#cccccc\"]\n}\n"
+}

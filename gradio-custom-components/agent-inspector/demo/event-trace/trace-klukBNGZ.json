@@ -1,0 +1,11 @@
+{
+  "gen_ai.system": "gcp.vertex.agent",
+  "gen_ai.request.model": "gemini-2.0-flash",
+  "gcp.vertex.agent.invocation_id": "e-23748f52-e8b2-4dc8-95f5-77da266897bd",
+  "gcp.vertex.agent.session_id": "11df5691-910e-43e5-bc53-016424f17f83",
+  "gcp.vertex.agent.event_id": "UAMkEWow",
+  "gcp.vertex.agent.llm_request": "{\"model\": \"gemini-2.0-flash\", \"config\": {\"system_instruction\": \"You are a helpful weather assistant. Your primary goal is to provide current weather reports. When the user asks for the weather in a specific city, you MUST use the 'get_weather' tool to find the information. Analyze the tool's response: if the status is 'error', inform the user politely about the error message. If the status is 'success', present the weather 'report' clearly and concisely to the user. Only use the tool when a city is mentioned for a weather request.\\n\\nYou are an agent. Your internal name is \\\"weather_agent_v1\\\".\\n\\n The description about you is \\\"Provides weather information for specific cities.\\\"\", \"tools\": [{\"function_declarations\": [{\"description\": \"Retrieves the current weather report for a specified city.\\n\\n    Args:\\n        city (str): The name of the city (e.g., \\\"New York\\\", \\\"London\\\", \\\"Tokyo\\\").\\n\\n    Returns:\\n        dict: A dictionary containing the weather information.\\n              Includes a 'status' key ('success' or 'error').\\n              If 'success', includes a 'report' key with weather details.\\n              If 'error', includes an 'error_message' key.\\n    \", \"name\": \"get_weather\", \"parameters\": {\"properties\": {\"city\": {\"type\": \"STRING\"}}, \"type\": \"OBJECT\"}}]}]}, \"contents\": [{\"parts\": [{\"text\": \"hi\"}], \"role\": \"user\"}]}",
+  "gcp.vertex.agent.llm_response": "{\"content\":{\"parts\":[{\"text\":\"Hi there! How can I help you today?\\n\"}],\"role\":\"model\"},\"usage_metadata\":{\"candidates_token_count\":11,\"candidates_tokens_details\":[{\"modality\":\"TEXT\",\"token_count\":11}],\"prompt_token_count\":245,\"prompt_tokens_details\":[{\"modality\":\"TEXT\",\"token_count\":245}],\"total_token_count\":256}}",
+  "trace_id": 2.625748880234465e+38,
+  "span_id": 15933905663971850000
+}

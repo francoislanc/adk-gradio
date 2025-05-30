@@ -1,0 +1,16 @@
+[project]
+name = "adk-gradio-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk>=1.1.1",
+    "gradio-agent-inspector",
+    "httpx>=0.28.1",
+    "litellm>=1.72.0",
+    "python-dotenv>=1.1.0",
+]
+
+[tool.uv.sources]
+gradio-agent-inspector = { path = "../gradio-custom-components/agent-inspector", editable = true }
