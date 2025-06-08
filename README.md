@@ -1,6 +1,6 @@
 # Agent Development Kit (ADK) + Gradio
 
-![ADK + Gradio](docs\gradio_adk.png)
+![ADK + Gradio](docs/gradio_adk.png)
 
 Debugging agent-based applications can be tricky!
 Agent Inspector is an open-source Gradio component designed to make this process easier and more transparent.
@@ -13,7 +13,7 @@ Contributions and feedback are welcome!
 
 # Demo App
 
-![demo app ADK gradio](docs\demo-app-v01.gif)
+![demo app ADK gradio](docs/demo-app-v01.gif)
 
 2 options to run this app : 
 - with an external ADK API server
