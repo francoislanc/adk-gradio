@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from typing import Iterator, List, Tuple
+import uuid
 import gradio as gr
 from gradio_agent_inspector import AgentInspector
 import os
@@ -19,11 +20,12 @@ import logging
 logger = logging.getLogger(__file__)
 
 
+# overwrite load_dotenv_for_agent function to use the system environment variables if defined
+# override=False => override=True
 def new_load_dotenv_for_agent(
     agent_name: str, agent_parent_folder: str, filename: str = ".env"
 ):
     """Loads the .env file for the agent module."""
-    print("load dotenv for agent")
     # Gets the folder of agent_module as starting_folder
     starting_folder = os.path.abspath(os.path.join(agent_parent_folder, agent_name))
     dotenv_file_path = _walk_to_root_until_found(starting_folder, filename)
@@ -42,16 +44,18 @@ def new_load_dotenv_for_agent(
 adk_envs.load_dotenv_for_agent = new_load_dotenv_for_agent
 
 
-def update_events_adk_inspector():
-    res = adk_client().get_events()
+def update_events_adk_inspector(request: gr.Request):
+    session_id = request.session_hash if request else str(uuid.uuid4())
+    res = adk_client(session_id).get_events()
     return json.dumps(res, indent=2)
 
 
-def update_trace_and_graph_adk_inspector():
-    res = adk_client().get_events()
+def update_trace_and_graph_adk_inspector(request: gr.Request):
+    session_id = request.session_hash if request else str(uuid.uuid4())
+    res = adk_client(session_id).get_events()
     for e in res["events"]:
         try:
-            trace = adk_client().get_trace(e["id"])
+            trace = adk_client(session_id).get_trace(e["id"])
             if "gcp.vertex.agent.llm_request" in trace:
                 trace["gcp.vertex.agent.llm_request"] = json.loads(
                     trace["gcp.vertex.agent.llm_request"]
@@ -64,21 +68,23 @@ def update_trace_and_graph_adk_inspector():
             if trace:
                 e["trace"] = trace
 
-                graph = adk_client().get_graph(e["id"])
+                graph = adk_client(session_id).get_graph(e["id"])
                 if graph:
                     e["graph"] = graph
         except Exception as e:
             print(e)
     return json.dumps(res, indent=2)
 
+
 def chat_with_adk_agent(
-    user_message: str, history: List[Tuple[str, str]]
+    user_message: str, history: List[Tuple[str, str]], request: gr.Request
 ) -> Iterator[List]:
     """Handle chat interaction with the ADK agent"""
     if not user_message.strip():
         yield history
 
-    if not adk_client().session_id:
+    session_id = request.session_hash if request else str(uuid.uuid4())
+    if not adk_client(session_id).session_id:
         history.append(
             gr.ChatMessage(
                 role="assistant",
@@ -89,7 +95,7 @@ def chat_with_adk_agent(
 
     # Get response from ADK agent
     try:
-        response = adk_client().send_message(user_message)
+        response = adk_client(session_id).send_message(user_message)
 
         # Update history
         for r in response:

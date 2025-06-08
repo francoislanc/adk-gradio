@@ -23,7 +23,7 @@ Contributions and feedback are welcome!
 adk api_server adk-gradio-example/adk_gradio_example/adk_agents
 # start the app
 cd adk-gradio-example
-python main.py
+python app.py
 ```
 
 - with the ADK API server started with the app
@@ -31,7 +31,7 @@ python main.py
 ```bash
 # start the app with the adk server
 cd adk-gradio-example
-python main.py --no-external-adk-api-server
+python app.py --no-external-adk-api-server
 ```
 
 # Custom Gradio Component : Agent Inspector 🕵️‍♂️ 

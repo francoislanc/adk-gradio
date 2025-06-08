@@ -9,9 +9,9 @@ load_dotenv()
 
 
 class ADKChatClient:
-    def __init__(self, api_key: str = None, base_url: str = None):
+    def __init__(self, user_session_id: str = None, base_url: str = None):
         """Initialize the ADK chat client"""
-        self.api_key = api_key or os.getenv("GOOGLE_API_KEY")
+        self.user_session_id = user_session_id
         self.base_url = base_url or "https://generativelanguage.googleapis.com/v1beta"
         self.app_name = "weather_agent"
         self.user_id = "user"
@@ -148,8 +148,8 @@ class ADKChatClient:
                 pass
 
 
-@lru_cache(maxsize=1)
-def adk_client():
-    client = ADKChatClient(base_url="http://localhost:8000")
+@lru_cache(maxsize=100)
+def adk_client(session_id: str):
+    client = ADKChatClient(user_session_id=session_id, base_url="http://localhost:8000")
     client.start_session()
     return client
