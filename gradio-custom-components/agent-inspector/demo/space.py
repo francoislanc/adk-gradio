@@ -24,7 +24,7 @@ with gr.Blocks(
 <img alt="Static Badge" src="https://img.shields.io/badge/version%20-%200.0.1%20-%20orange">  
 </div>
 
-Inspector for ADK
+Agent Inspector for ADK
 """, elem_classes=["md-custom"], header_links=True)
     app.render()
     gr.Markdown(
@@ -54,7 +54,7 @@ def simulate_conversation():
     }
 
     states = []
-    for i in range(3):
+    for i in range(2):
         session_value_p = dir_path / "session-sample" / f"value-{i}.json"
         with session_value_p.open("r", encoding="utf-8") as f:
             session_value = json.load(f)
