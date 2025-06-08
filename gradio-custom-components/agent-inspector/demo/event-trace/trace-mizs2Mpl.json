@@ -1,0 +1,14 @@
+{
+  "gen_ai.system": "gcp.vertex.agent",
+  "gen_ai.operation.name": "execute_tool",
+  "gen_ai.tool.name": "get_weather",
+  "gen_ai.tool.description": "Retrieves the current weather report for a specified city.\n\nArgs:\n    city (str): The name of the city (e.g., \"New York\", \"London\", \"Tokyo\").\n\nReturns:\n    dict: A dictionary containing the weather information.\n          Includes a 'status' key ('success' or 'error').\n          If 'success', includes a 'report' key with weather details.\n          If 'error', includes an 'error_message' key.",
+  "gen_ai.tool.call.id": "adk-b488c3ed-5875-4999-89ed-383b0c94826d",
+  "gcp.vertex.agent.tool_call_args": "{\"city\": \"New York\"}",
+  "gcp.vertex.agent.event_id": "mizs2Mpl",
+  "gcp.vertex.agent.tool_response": "{\"status\": \"success\", \"report\": \"The weather in New york is sunny with a temperature of 25°C.\"}",
+  "gcp.vertex.agent.llm_request": "{}",
+  "gcp.vertex.agent.llm_response": "{}",
+  "trace_id": 1.585818373009333e+38,
+  "span_id": 17506961790282844000
+}

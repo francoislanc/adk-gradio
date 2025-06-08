@@ -1,9 +1,10 @@
 {
-  "id": "bbc3575c-5b3d-494d-9b90-03fb01b15fde",
-  "appName": "agent",
+  "id": "d6de8f93-5b2c-487f-9f54-bd6abfd06bbe",
+  "appName": "weather_agent",
   "userId": "user",
   "state": {
-    "last_city_checked_stateful": "london"
+    "last_response": "The weather in New York is sunny with a temperature of 25°C.\n",
+    "last_city_checked_stateful": "New York"
   },
   "events": [
     {
@@ -15,15 +16,15 @@
         ],
         "role": "user"
       },
-      "invocationId": "e-b7d4f79d-ccd1-4b7d-98ae-c8a63ce7a87f",
+      "invocationId": "e-46b87f9c-6deb-4d6e-8031-0d8194aaae00",
       "author": "user",
       "actions": {
         "stateDelta": {},
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "JdtbADN3",
-      "timestamp": 1748895673.201263
+      "id": "UuzEKV1U",
+      "timestamp": 1749409305.556533
     },
     {
       "content": {
@@ -42,54 +43,54 @@
             "tokenCount": 11
           }
         ],
-        "promptTokenCount": 245,
+        "promptTokenCount": 246,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 245
+            "tokenCount": 246
           }
         ],
-        "totalTokenCount": 256
+        "totalTokenCount": 257
       },
-      "invocationId": "e-b7d4f79d-ccd1-4b7d-98ae-c8a63ce7a87f",
+      "invocationId": "e-46b87f9c-6deb-4d6e-8031-0d8194aaae00",
       "author": "weather_agent_v1",
       "actions": {
         "stateDelta": {
-          "last_weather_report": "Hi there! How can I help you today?\n"
+          "last_response": "Hi there! How can I help you today?\n"
         },
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "sN3akUOs",
-      "timestamp": 1748895673.201263
+      "id": "4nNtOvIp",
+      "timestamp": 1749409305.556533
     },
     {
       "content": {
         "parts": [
           {
-            "text": "what is the weather in london ?"
+            "text": "what is the weather in new york"
           }
         ],
         "role": "user"
       },
-      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "invocationId": "e-cee39ecc-0cef-4e03-9047-0b8d5e728964",
       "author": "user",
       "actions": {
         "stateDelta": {},
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "hwMHRYGt",
-      "timestamp": 1748895691.725014
+      "id": "J0thtik1",
+      "timestamp": 1749409604.09957
     },
     {
       "content": {
         "parts": [
           {
             "functionCall": {
-              "id": "adk-e32f3a18-a233-4ae8-b56d-4190cf8b1355",
+              "id": "adk-b488c3ed-5875-4999-89ed-383b0c94826d",
               "args": {
-                "city": "london"
+                "city": "New York"
               },
               "name": "get_weather"
             }
@@ -98,23 +99,23 @@
         "role": "model"
       },
       "usageMetadata": {
-        "candidatesTokenCount": 5,
+        "candidatesTokenCount": 6,
         "candidatesTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 5
+            "tokenCount": 6
           }
         ],
-        "promptTokenCount": 263,
+        "promptTokenCount": 264,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 263
+            "tokenCount": 264
           }
         ],
-        "totalTokenCount": 268
+        "totalTokenCount": 270
       },
-      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "invocationId": "e-cee39ecc-0cef-4e03-9047-0b8d5e728964",
       "author": "weather_agent_v1",
       "actions": {
         "stateDelta": {},
@@ -122,37 +123,75 @@
         "requestedAuthConfigs": {}
       },
       "longRunningToolIds": [],
-      "id": "xnWDPJq3",
-      "timestamp": 1748895691.725852
+      "id": "pjqr5AM1",
+      "timestamp": 1749409604.09957
     },
     {
       "content": {
         "parts": [
           {
             "functionResponse": {
-              "id": "adk-e32f3a18-a233-4ae8-b56d-4190cf8b1355",
+              "id": "adk-b488c3ed-5875-4999-89ed-383b0c94826d",
               "name": "get_weather",
               "response": {
                 "status": "success",
-                "report": "The weather in London is cloudy with a temperature of 15°C."
+                "report": "The weather in New york is sunny with a temperature of 25°C."
               }
             }
           }
         ],
         "role": "user"
       },
-      "invocationId": "e-286438d7-9422-43df-bb51-f475d493bbb5",
+      "invocationId": "e-cee39ecc-0cef-4e03-9047-0b8d5e728964",
       "author": "weather_agent_v1",
       "actions": {
         "stateDelta": {
-          "last_city_checked_stateful": "london"
+          "last_city_checked_stateful": "New York"
         },
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "qhLH5c0p",
-      "timestamp": 1748895692.234188
+      "id": "mizs2Mpl",
+      "timestamp": 1749409604.677217
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "The weather in New York is sunny with a temperature of 25°C.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "candidatesTokenCount": 18,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 18
+          }
+        ],
+        "promptTokenCount": 293,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 293
+          }
+        ],
+        "totalTokenCount": 311
+      },
+      "invocationId": "e-cee39ecc-0cef-4e03-9047-0b8d5e728964",
+      "author": "weather_agent_v1",
+      "actions": {
+        "stateDelta": {
+          "last_response": "The weather in New York is sunny with a temperature of 25°C.\n"
+        },
+        "artifactDelta": {},
+        "requestedAuthConfigs": {}
+      },
+      "id": "HPTxQshW",
+      "timestamp": 1749409604.677217
     }
   ],
-  "lastUpdateTime": 1748895692.234188
+  "lastUpdateTime": 1749409604.677217
 }

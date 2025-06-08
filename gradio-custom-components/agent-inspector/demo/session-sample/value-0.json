@@ -1,9 +1,9 @@
 {
-  "id": "7b31fe12-e9a7-44ab-8b8f-712168050621",
-  "appName": "agent",
+  "id": "d6de8f93-5b2c-487f-9f54-bd6abfd06bbe",
+  "appName": "weather_agent",
   "userId": "user",
   "state": {
-    "last_weather_report": "Hi there! How can I help you today?\n"
+    "last_response": "Hi there! How can I help you today?\n"
   },
   "events": [
     {
@@ -15,15 +15,15 @@
         ],
         "role": "user"
       },
-      "invocationId": "e-0f9e4560-4f81-468c-b2b8-493ef44141d7",
+      "invocationId": "e-46b87f9c-6deb-4d6e-8031-0d8194aaae00",
       "author": "user",
       "actions": {
         "stateDelta": {},
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "i91rx0Kt",
-      "timestamp": 1748896296.660717
+      "id": "UuzEKV1U",
+      "timestamp": 1749409305.556533
     },
     {
       "content": {
@@ -42,27 +42,27 @@
             "tokenCount": 11
           }
         ],
-        "promptTokenCount": 245,
+        "promptTokenCount": 246,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 245
+            "tokenCount": 246
           }
         ],
-        "totalTokenCount": 256
+        "totalTokenCount": 257
       },
-      "invocationId": "e-0f9e4560-4f81-468c-b2b8-493ef44141d7",
+      "invocationId": "e-46b87f9c-6deb-4d6e-8031-0d8194aaae00",
       "author": "weather_agent_v1",
       "actions": {
         "stateDelta": {
-          "last_weather_report": "Hi there! How can I help you today?\n"
+          "last_response": "Hi there! How can I help you today?\n"
         },
         "artifactDelta": {},
         "requestedAuthConfigs": {}
       },
-      "id": "klukBNGZ",
-      "timestamp": 1748896296.662079
+      "id": "4nNtOvIp",
+      "timestamp": 1749409305.556533
     }
   ],
-  "lastUpdateTime": 1748896296.662079
+  "lastUpdateTime": 1749409305.556533
 }
