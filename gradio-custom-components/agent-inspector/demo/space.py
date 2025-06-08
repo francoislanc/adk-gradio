@@ -21,7 +21,7 @@ with gr.Blocks(
 # `gradio_agent_inspector`
 
 <div style="display: flex; gap: 7px;">
-<img alt="Static Badge" src="https://img.shields.io/badge/version%20-%200.0.1%20-%20orange">  
+<a href="https://pypi.org/project/gradio_agent_inspector/" target="_blank"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gradio_agent_inspector"></a>  
 </div>
 
 Agent Inspector for ADK

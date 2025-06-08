@@ -8,13 +8,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "gradio_agent_inspector"
-version = "0.0.1"
+version = "0.0.2"
 description = "Agent Inspector for ADK"
 readme = "README.md"
 license = "apache-2.0"
 requires-python = ">=3.10"
 authors = [{ name = "Francois Lancelot" }]
-keywords = ["gradio-custom-component", "gradio-template-SimpleTextbox", "adk", "agent", "llm", "tools"]
+keywords = ["gradio-custom-component", "custom-component-track", "adk", "agent", "llm", "tools"]
 # Add dependencies here
 dependencies = ["gradio>=4.0,<6.0"]
 classifiers = [
@@ -39,7 +39,7 @@ classifiers = [
 
 # [project.urls]
 repository = "https://github.com/francoislanc/adk-gradio/"
-# space = "your space url"
+space = "https://huggingface.co/spaces/Agents-MCP-Hackathon/gradio_agent_inspector"
 
 [project.optional-dependencies]
 dev = ["build", "twine"]

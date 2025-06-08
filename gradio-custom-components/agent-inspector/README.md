@@ -1,6 +1,6 @@
 
 # `gradio_agent_inspector`
-<img alt="Static Badge" src="https://img.shields.io/badge/version%20-%200.0.1%20-%20orange">  
+<a href="https://pypi.org/project/gradio_agent_inspector/" target="_blank"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gradio_agent_inspector"></a>  
 
 Agent Inspector for ADK
 
