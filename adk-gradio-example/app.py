@@ -124,9 +124,10 @@ def append_user_message(msg: str, history: list) -> tuple[str, list]:
     return "", history
 
 
-def update_api_keys(google_api_key):
-    os.environ["GOOGLE_API_KEY"] = google_api_key
-
+def update_api_keys(google_api_key: str, request: gr.Request):
+    if len(google_api_key) > 0:
+        session_id = request.session_hash if request else str(uuid.uuid4())
+        adk_client(session_id).set_custom_api_key(google_api_key)
 
 with gr.Blocks(title="Gradio Agent Inspector + ADK") as demo:
     gr.Markdown("# Chat and Inspect ADK Agent in Gradio")
