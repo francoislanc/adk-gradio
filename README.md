@@ -2,11 +2,10 @@
 
 ![ADK + Gradio](docs/gradio_adk.png)
 
-Debugging agent-based applications can be tricky!
-Agent Inspector is a Gradio component designed to make this process easier and more transparent.
+Debugging agent-based applications can be tricky!  
 
-Inspired by tools like the [ADK web](https://github.com/google/adk-web) debug panel, Agent Inspector brings similar functionality to the Gradio ecosystem.
-
+Agent Inspector is a Gradio component designed to make this process easier and more transparent.  
+Inspired by tools like the [ADK web](https://github.com/google/adk-web) debug panel, Agent Inspector brings similar functionality to the Gradio ecosystem.  
 Whether you're building, testing, or fine-tuning your agent, Agent Inspector helps you understand what's happening under the hood.
 
 
