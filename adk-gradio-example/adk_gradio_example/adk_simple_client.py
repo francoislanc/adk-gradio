@@ -1,4 +1,5 @@
 from functools import lru_cache
+import json
 import os
 from typing import Dict, Optional
 from dotenv import load_dotenv
@@ -12,7 +13,7 @@ class ADKChatClient:
     def __init__(self, user_session_id: str = None, base_url: str = None):
         """Initialize the ADK chat client"""
         self.user_session_id = user_session_id
-        self.base_url = base_url or "https://generativelanguage.googleapis.com/v1beta"
+        self.base_url = base_url
         self.app_name = "weather_agent"
         self.user_id = "user"
         self.session_id = None
@@ -60,9 +61,7 @@ class ADKChatClient:
         }
 
         prev_api_key = (
-            os.environ["GOOGLE_API_KEY"]
-            if "GOOGLE_API_KEY" in os.environ
-            else None
+            os.environ["GOOGLE_API_KEY"] if "GOOGLE_API_KEY" in os.environ else None
         )
         if self.custom_api_key:
             os.environ["GOOGLE_API_KEY"] = self.custom_api_key
@@ -77,7 +76,6 @@ class ADKChatClient:
             raise Exception(f"Error: {response.status_code} - {response.text}")
 
     def get_events(self) -> Dict:
-        """Send a message to the ADK agent and get response"""
         if not self.session_id:
             return "Error: No active session. Please start a session first."
 
@@ -101,7 +99,6 @@ class ADKChatClient:
             raise Exception(f"Error: {response.status_code} - {response.text}")
 
     def get_trace(self, event_id) -> Optional[Dict]:
-        """Send a message to the ADK agent and get response"""
         if event_id in self.trace_cache:
             return self.trace_cache[event_id]
         else:
@@ -116,6 +113,16 @@ class ADKChatClient:
             )
             if response.status_code == 200:
                 json_response = response.json()
+
+                if "gcp.vertex.agent.llm_request" in json_response:
+                    json_response["gcp.vertex.agent.llm_request"] = json.loads(
+                        json_response["gcp.vertex.agent.llm_request"]
+                    )
+                if "gcp.vertex.agent.llm_response" in json_response:
+                    json_response["gcp.vertex.agent.llm_response"] = json.loads(
+                        json_response["gcp.vertex.agent.llm_response"]
+                    )
+
                 self.trace_cache[event_id] = json_response
                 return json_response
             else:
@@ -126,7 +133,6 @@ class ADKChatClient:
         if event_id in self.graph_cache:
             return self.graph_cache[event_id]
         else:
-            """Send a message to the ADK agent and get response"""
             if not self.session_id:
                 return "Error: No active session. Please start a session first."
 

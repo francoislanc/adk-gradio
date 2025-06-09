@@ -5,7 +5,6 @@ import uuid
 import gradio as gr
 from gradio_agent_inspector import AgentInspector
 import os
-import asyncio
 from google.adk.cli.fast_api import get_fast_api_app
 import uvicorn
 import argparse
@@ -53,26 +52,18 @@ def update_events_adk_inspector(request: gr.Request):
 def update_trace_and_graph_adk_inspector(request: gr.Request):
     session_id = request.session_hash if request else str(uuid.uuid4())
     res = adk_client(session_id).get_events()
-    for e in res["events"]:
-        try:
-            trace = adk_client(session_id).get_trace(e["id"])
-            if "gcp.vertex.agent.llm_request" in trace:
-                trace["gcp.vertex.agent.llm_request"] = json.loads(
-                    trace["gcp.vertex.agent.llm_request"]
-                )
-            if "gcp.vertex.agent.llm_response" in trace:
-                trace["gcp.vertex.agent.llm_response"] = json.loads(
-                    trace["gcp.vertex.agent.llm_response"]
-                )
-
-            if trace:
-                e["trace"] = trace
+    if "events" in res:
+        for e in res["events"]:
+            try:
+                trace = adk_client(session_id).get_trace(e["id"])
+                if trace:
+                    e["trace"] = trace
 
                 graph = adk_client(session_id).get_graph(e["id"])
                 if graph:
                     e["graph"] = graph
-        except Exception as e:
-            print(e)
+            except Exception as e:
+                print(e)
     return json.dumps(res, indent=2)
 
 
