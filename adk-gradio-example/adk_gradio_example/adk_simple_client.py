@@ -18,6 +18,7 @@ class ADKChatClient:
         self.session_id = None
         self.trace_cache = {}
         self.graph_cache = {}
+        self.custom_api_key: Optional[str] = None
 
     def start_session(self) -> bool:
         try:
@@ -58,7 +59,16 @@ class ADKChatClient:
             "streaming": False,
         }
 
+        prev_api_key = (
+            os.environ["GOOGLE_API_KEY"]
+            if "GOOGLE_API_KEY" in os.environ
+            else None
+        )
+        if self.custom_api_key:
+            os.environ["GOOGLE_API_KEY"] = self.custom_api_key
         response = httpx.post(f"{self.base_url}/run", headers=headers, json=payload)
+        if self.custom_api_key:
+            os.environ["GOOGLE_API_KEY"] = prev_api_key
 
         if response.status_code == 200:
             json_response = response.json()
@@ -133,6 +143,9 @@ class ADKChatClient:
             else:
                 self.trace_cache[event_id] = None
                 raise Exception(f"Error: {response.status_code} - {response.text}")
+
+    def set_custom_api_key(self, custom_api_key):
+        self.custom_api_key = custom_api_key
 
     def end_session(self):
         """End the current chat session"""
