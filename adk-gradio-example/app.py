@@ -129,8 +129,23 @@ def update_api_keys(google_api_key: str, request: gr.Request):
         session_id = request.session_hash if request else str(uuid.uuid4())
         adk_client(session_id).set_custom_api_key(google_api_key)
 
+
 with gr.Blocks(title="Gradio Agent Inspector + ADK") as demo:
-    gr.Markdown("# Chat and Inspect ADK Agent in Gradio")
+    gr.Markdown(
+        """# 🕵️ Chat and Inspect ADK Agent in Gradio
+                
+[Agent Inspector](https://huggingface.co/spaces/Agents-MCP-Hackathon/gradio_agent_inspector) is a Gradio component designed to make this process easier and more transparent.  
+Inspired by tools like the [ADK web](https://github.com/google/adk-web) debug panel, Agent Inspector brings similar functionality to the Gradio ecosystem.  
+Whether you're building, testing, or fine-tuning your agent, Agent Inspector helps you understand what's happening under the hood.
+
+Github repo :
+[![adk-gradio](https://img.shields.io/badge/Github-ADK--gradio-blue)](https://github.com/francoislanc/adk-gradio)          
+
+                 
+                
+                
+                """
+    )
 
     with gr.Tab("💬 Chat and debug"):
         with gr.Row(scale=1):

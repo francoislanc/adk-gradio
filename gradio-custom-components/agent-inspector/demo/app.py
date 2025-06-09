@@ -55,7 +55,23 @@ def update_conversation_state(state_index, states):
 initial_state, conversation_states = simulate_conversation()
 
 with gr.Blocks() as demo:
-    gr.Markdown("# Agent Inspector")
+    gr.Markdown(
+        """# 🕵️ Agent Inspector
+
+Debugging agent-based applications can be tricky!
+
+Agent Inspector is a Gradio component designed to make this process easier and more transparent.  
+Inspired by tools like the [ADK web](https://github.com/google/adk-web) debug panel, Agent Inspector brings similar functionality to the Gradio ecosystem.  
+Whether you're building, testing, or fine-tuning your agent, Agent Inspector helps you understand what's happening under the hood.
+
+Demo App with ADK :  
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Agents-MCP-Hackathon/adk-gradio?logs=container)          
+                
+Github repo :
+[![adk-gradio](https://img.shields.io/badge/Github-ADK--gradio-blue)](https://github.com/francoislanc/adk-gradio)          
+
+                """
+    )
 
     state_counter = gr.State(-1)
 
